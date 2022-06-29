@@ -29,13 +29,14 @@ export async function getStaticProps({ params }) {
     'fields.slug': params.slug
   })
   return {
-  props: { recipe:items[0] }
+  props: { recipe:items[0] }, 
+  revalidate: 1
   }
 
 }
 
 export default function RecipeDetails({ recipe }) {
-  const { featuredImage, title,cookingTime, ingredients, method } = recipe.fields
+  const { featuredImage, title, cookingTime, ingredients, method } = recipe.fields
   return (
     <div>
       <div className="banner">
